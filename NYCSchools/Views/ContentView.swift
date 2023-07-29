@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    @ObservedObject var viewModel = SchoolViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ForEach(viewModel.allSchools, id: \.id) { school in
+                Text(school.school_name)
+            }
         }
-        .padding()
+        .task(){
+           await viewModel.getSchools()
+        }
     }
 }
 

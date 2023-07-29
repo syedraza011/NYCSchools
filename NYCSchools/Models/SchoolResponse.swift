@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct SchoolResponse: Decodable{
+    let schools: [School]
+}
+struct School: Decodable,Identifiable {
+    var id = UUID()
+    let school_name: String
+    let boro: String
+    
+}

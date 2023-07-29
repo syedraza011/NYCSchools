@@ -17,6 +17,7 @@
 		E97682D22A757181001C5836 /* SchoolResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D12A757181001C5836 /* SchoolResponse.swift */; };
 		E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D32A757194001C5836 /* SchoolViewModel.swift */; };
 		E97682D62A7571A7001C5836 /* SchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D52A7571A7001C5836 /* SchoolService.swift */; };
+		E97682D82A757298001C5836 /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D72A757298001C5836 /* AsyncState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		E97682D12A757181001C5836 /* SchoolResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolResponse.swift; sourceTree = "<group>"; };
 		E97682D32A757194001C5836 /* SchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
 		E97682D52A7571A7001C5836 /* SchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolService.swift; sourceTree = "<group>"; };
+		E97682D72A757298001C5836 /* AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		E97682D02A75714C001C5836 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E97682D72A757298001C5836 /* AsyncState.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97682D82A757298001C5836 /* AsyncState.swift in Sources */,
 				E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */,
 				E97682A62A757109001C5836 /* ContentView.swift in Sources */,
 				E97682D22A757181001C5836 /* SchoolResponse.swift in Sources */,
