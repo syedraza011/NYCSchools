@@ -33,7 +33,7 @@ enum APIError: Error {
 
 class SchoolService {
 //    let urlString = "https://data.cityofnewyork.us/Education/DOE-High- School-Directory-2017/s3k6-pzi2.Json?"
-    let urlString = "https://data.cityofnewyork.us/Education/SAT- Results/f9bf-2cp4"
+    let urlString = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     func fetchSchools() async throws -> SchoolResponse {
         
         guard let url =  URL(string: urlString) else {
