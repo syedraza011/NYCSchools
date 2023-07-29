@@ -14,6 +14,9 @@
 		E97682B52A75710A001C5836 /* NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682B42A75710A001C5836 /* NYCSchoolsTests.swift */; };
 		E97682BF2A75710A001C5836 /* NYCSchoolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682BE2A75710A001C5836 /* NYCSchoolsUITests.swift */; };
 		E97682C12A75710A001C5836 /* NYCSchoolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682C02A75710A001C5836 /* NYCSchoolsUITestsLaunchTests.swift */; };
+		E97682D22A757181001C5836 /* SchoolResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D12A757181001C5836 /* SchoolResponse.swift */; };
+		E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D32A757194001C5836 /* SchoolViewModel.swift */; };
+		E97682D62A7571A7001C5836 /* SchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D52A7571A7001C5836 /* SchoolService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E97682BA2A75710A001C5836 /* NYCSchoolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97682BE2A75710A001C5836 /* NYCSchoolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITests.swift; sourceTree = "<group>"; };
 		E97682C02A75710A001C5836 /* NYCSchoolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E97682D12A757181001C5836 /* SchoolResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolResponse.swift; sourceTree = "<group>"; };
+		E97682D32A757194001C5836 /* SchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
+		E97682D52A7571A7001C5836 /* SchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,11 @@
 		E97682A22A757109001C5836 /* NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
+				E97682D02A75714C001C5836 /* Shared */,
+				E97682CF2A75713E001C5836 /* Views */,
+				E97682CE2A757133001C5836 /* Models */,
+				E97682CD2A757123001C5836 /* Network */,
 				E97682A32A757109001C5836 /* NYCSchoolsApp.swift */,
-				E97682A52A757109001C5836 /* ContentView.swift */,
 				E97682A72A75710A001C5836 /* Assets.xcassets */,
 				E97682A92A75710A001C5836 /* Preview Content */,
 			);
@@ -125,6 +134,38 @@
 				E97682C02A75710A001C5836 /* NYCSchoolsUITestsLaunchTests.swift */,
 			);
 			path = NYCSchoolsUITests;
+			sourceTree = "<group>";
+		};
+		E97682CD2A757123001C5836 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E97682D52A7571A7001C5836 /* SchoolService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E97682CE2A757133001C5836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E97682D12A757181001C5836 /* SchoolResponse.swift */,
+				E97682D32A757194001C5836 /* SchoolViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E97682CF2A75713E001C5836 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E97682A52A757109001C5836 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E97682D02A75714C001C5836 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */,
 				E97682A62A757109001C5836 /* ContentView.swift in Sources */,
+				E97682D22A757181001C5836 /* SchoolResponse.swift in Sources */,
+				E97682D62A7571A7001C5836 /* SchoolService.swift in Sources */,
 				E97682A42A757109001C5836 /* NYCSchoolsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
