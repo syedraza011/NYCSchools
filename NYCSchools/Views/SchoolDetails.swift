@@ -21,14 +21,14 @@ struct SchoolDetails: View {
 
             ForEach(sats, id: \.self) { sat in
                 SATDetails(sats: [sat])
-                    .font(.headline)
-                    .foregroundColor(.blue)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(20)
+                    
             }
-        }
+        }.font(.headline)
+            .foregroundColor(.blue)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(20)
     }
 }
 
