@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92CA4E32A7582E300BE7524 /* emptyData.json in Resources */ = {isa = PBXBuildFile; fileRef = E92CA4E22A7582E300BE7524 /* emptyData.json */; };
+		E92CA4E52A7582ED00BE7524 /* schoolSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = E92CA4E42A7582ED00BE7524 /* schoolSuccess.json */; };
+		E92CA4E72A7582F300BE7524 /* schoolFailure.json in Resources */ = {isa = PBXBuildFile; fileRef = E92CA4E62A7582F300BE7524 /* schoolFailure.json */; };
 		E97682A42A757109001C5836 /* NYCSchoolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682A32A757109001C5836 /* NYCSchoolsApp.swift */; };
 		E97682A62A757109001C5836 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682A52A757109001C5836 /* ContentView.swift */; };
 		E97682A82A75710A001C5836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97682A72A75710A001C5836 /* Assets.xcassets */; };
@@ -18,6 +21,8 @@
 		E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D32A757194001C5836 /* SchoolViewModel.swift */; };
 		E97682D62A7571A7001C5836 /* SchoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D52A7571A7001C5836 /* SchoolService.swift */; };
 		E97682D82A757298001C5836 /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97682D72A757298001C5836 /* AsyncState.swift */; };
+		E97C7AD52A76265400D45FE5 /* SchoolDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C7AD42A76265400D45FE5 /* SchoolDetails.swift */; };
+		E9812EA12A76CA2A00A642ED /* SATDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9812EA02A76CA2A00A642ED /* SATDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E92CA4E22A7582E300BE7524 /* emptyData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyData.json; sourceTree = "<group>"; };
+		E92CA4E42A7582ED00BE7524 /* schoolSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schoolSuccess.json; sourceTree = "<group>"; };
+		E92CA4E62A7582F300BE7524 /* schoolFailure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schoolFailure.json; sourceTree = "<group>"; };
 		E97682A02A757109001C5836 /* NYCSchools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYCSchools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97682A32A757109001C5836 /* NYCSchoolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsApp.swift; sourceTree = "<group>"; };
 		E97682A52A757109001C5836 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +60,8 @@
 		E97682D32A757194001C5836 /* SchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolViewModel.swift; sourceTree = "<group>"; };
 		E97682D52A7571A7001C5836 /* SchoolService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolService.swift; sourceTree = "<group>"; };
 		E97682D72A757298001C5836 /* AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
+		E97C7AD42A76265400D45FE5 /* SchoolDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetails.swift; sourceTree = "<group>"; };
+		E9812EA02A76CA2A00A642ED /* SATDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E92CA4E12A7582CD00BE7524 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				E92CA4E42A7582ED00BE7524 /* schoolSuccess.json */,
+				E92CA4E62A7582F300BE7524 /* schoolFailure.json */,
+				E92CA4E22A7582E300BE7524 /* emptyData.json */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
 		E97682972A757109001C5836 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +144,7 @@
 		E97682B32A75710A001C5836 /* NYCSchoolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E92CA4E12A7582CD00BE7524 /* MockData */,
 				E97682B42A75710A001C5836 /* NYCSchoolsTests.swift */,
 			);
 			path = NYCSchoolsTests;
@@ -159,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				E97682A52A757109001C5836 /* ContentView.swift */,
+				E97C7AD42A76265400D45FE5 /* SchoolDetails.swift */,
+				E9812EA02A76CA2A00A642ED /* SATDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92CA4E72A7582F300BE7524 /* schoolFailure.json in Resources */,
+				E92CA4E52A7582ED00BE7524 /* schoolSuccess.json in Resources */,
+				E92CA4E32A7582E300BE7524 /* emptyData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,9 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E97682D82A757298001C5836 /* AsyncState.swift in Sources */,
+				E9812EA12A76CA2A00A642ED /* SATDetails.swift in Sources */,
 				E97682D42A757194001C5836 /* SchoolViewModel.swift in Sources */,
 				E97682A62A757109001C5836 /* ContentView.swift in Sources */,
 				E97682D22A757181001C5836 /* SchoolResponse.swift in Sources */,
+				E97C7AD52A76265400D45FE5 /* SchoolDetails.swift in Sources */,
 				E97682D62A7571A7001C5836 /* SchoolService.swift in Sources */,
 				E97682A42A757109001C5836 /* NYCSchoolsApp.swift in Sources */,
 			);

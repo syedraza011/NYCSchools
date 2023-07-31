@@ -31,22 +31,56 @@ enum APIError: Error {
     }
 }
 
-class SchoolService {
-//    let urlString = "https://data.cityofnewyork.us/Education/DOE-High- School-Directory-2017/s3k6-pzi2.Json?"
-    let urlString = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
-    func fetchSchools() async throws -> SchoolResponse {
-        
-        guard let url =  URL(string: urlString) else {
+
+protocol SchoolServiceProtocol {
+    func fetchSchools() async throws -> [SchoolResponse]
+    func fetchSAT() async throws -> [SATResponse]
+}
+
+
+class SchoolService: SchoolServiceProtocol{
+    
+    struct Constants {
+        static let baseURL = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
+        static let urlStringSAT="https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
+    }
+    
+    func fetchSchools() async throws ->  [SchoolResponse]{
+        guard let url = URL(string: Constants.baseURL) else {
             throw APIError.invalidUrl
         }
+        
         do {
-            let (data,response) = try await URLSession.shared.data(from: url)
-            guard let resp = response as? HTTPURLResponse, resp.statusCode == 200 else {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 throw APIError.invalidResponse
             }
-            return try JSONDecoder().decode(SchoolResponse.self, from: data)
-        }catch {
+            
+            let result = try JSONDecoder().decode([SchoolResponse].self, from: data)
+            return result
+        } catch {
+            print(error)
             throw APIError.decodingError
         }
-    }
-}
+        
+    } // ending fetchSchools
+    
+    
+    
+        func fetchSAT() async throws -> [SATResponse] {
+    
+            guard let url =  URL(string: Constants.urlStringSAT) else {
+                throw APIError.invalidUrl
+            }
+            do {
+                let (data,response) = try await URLSession.shared.data(from: url)
+                guard let resp = response as? HTTPURLResponse, resp.statusCode == 200 else {
+                    throw APIError.invalidResponse
+                }
+                return try JSONDecoder().decode([SATResponse].self, from: data)
+            }catch {
+                throw APIError.decodingError
+            }
+        }
+   
+} //ending school service
