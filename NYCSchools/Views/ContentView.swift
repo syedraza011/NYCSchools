@@ -20,8 +20,6 @@ struct ContentView: View {
                         NavigationLink(destination: SchoolDetails(school: school, sats: satsForSchool)) {
                             VStack{
                                 Text(school.name)
-                                   
-//                                SATDetails(sats: satsForSchool)
                             } .font(.headline)
                                 .foregroundColor(.blue)
                                 .padding()

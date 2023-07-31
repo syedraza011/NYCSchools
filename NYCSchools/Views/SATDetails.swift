@@ -14,12 +14,14 @@ struct SATDetails: View {
         VStack{
             ForEach(sats, id: \.self) { score in
                 
-                HStack{
-                    Text(score.maths)
+                VStack{
+                    
+                      
+                    Text("Reading:           \(score.reading)")
                         .font(.headline)
-                    Text("\(score.reading)")
+                    Text("Writing:             \(score.writing)")
                         .font(.headline)
-                    Text("\(score.writing)")
+                    Text("Mathematics:  \(score.maths)")
                         .font(.headline)
                 }
                     .font(.headline)
