@@ -9,7 +9,7 @@ import XCTest
 @testable import NYCSchools
 import Combine
 enum FileName: String {
-    case schoolSuccessData, schoolMissingData, schoolEmptyData
+    case schoolSuccess, schoolFailure, emptyData
 }
 final class NYCSchoolsTests: XCTestCase {
     
@@ -39,89 +39,83 @@ final class NYCSchoolsTests: XCTestCase {
     }
     
     
-//    func test_should_pass_real_Data() async throws {
-//        let viewModel = SchoolViewModel(service: MockSchoolService(fileName: .schoolSuccessData))
-//        let exp = XCTestExpectation(description: "Expecting to succeed")
-//
-//        await viewModel.getSchools()
-//
-//        viewModel.$allSchools
-//            .sink { schools in
-//
-//                XCTAssertEqual(schools.first.dbn,"02M260")
-//                XCTAssertEqual(schools.first.name,"Clinton School Writers & Artists, M.S. 260")
-//                XCTAssertEqual(schools.first.city,"Manhattan")
-//                XCTAssertEqual(schools.first.state,"NY")
-//                XCTAssertEqual(schools.first.zip,"10003")
-//                exp.fulfill()
-//            }
-//            .store(in: &cancellables)
-//
-//        wait(for: [exp], timeout: 5.0)
-//    }
-//    func test_should_pass_real_Data() async throws {
-//        // Given
-//        let viewModel = SchoolViewModel(service: MockSchoolService(fileName: .schoolSuccessData))
-//        let exp = XCTestExpectation(description: "Expecting to succeed")
-//
-//        // When
-//        do {
-//            try await viewModel.getSchools()
-//
-//            // Then
-//            let schools = try await viewModel.$allSchools.first() // Await the first value from the publisher
-//
-//            if let firstSchool = allSchools.first as? SchoolViewModel {
-//                XCTAssertEqual(firstSchool.dbn, "02M260")
-//                XCTAssertEqual(firstSchool.name, "Clinton School Writers & Artists, M.S. 260")
-//                XCTAssertEqual(firstSchool.city, "Manhattan")
-//                XCTAssertEqual(firstSchool.state, "NY")
-//                XCTAssertEqual(firstSchool.zip, "10003")
-//                exp.fulfill()
-//            } else {
-//                XCTFail("No schools found.")
-//            }
-//        } catch {
-//            XCTFail("Unexpected error: \(error)")
-//        }
-//
-//        // Wait for the expectation to be fulfilled
-//        wait(for: [exp], timeout: 5.0)
-//    }
+    func test_Fetch_School_should_Succeed() async throws{
+        
+        let viewModel = SchoolViewModel(service: MockSchoolService(fileName: .schoolSuccess))
+        
+        let expection = XCTestExpectation(description: "School Fetch Success Call")
+        
+        await viewModel.getSchools()
+        
+        viewModel.$allSchools.dropFirst().sink{ school in
+           
+            XCTAssertFalse(school.isEmpty, "stockShouldNotBeEmpty")
+            let first = school.first!
+            XCTAssertEqual(first.name, "Clinton School Writers & Artists, M.S. 260")
+            expection.fulfill()
+        }
+        .store(in: &cancellables)
+        await fulfillment(of: [expection], timeout: 5)
+    }
+    
+    func test_Fetch_School_should_Fail() async  {
+        let viewModel = SchoolViewModel(service: MockSchoolService(fileName: .schoolFailure))
+        let exp = XCTestExpectation(description: "School Fetch Fail Call")
 
+        await viewModel.getSchools()
+        viewModel.$state
+            .dropFirst()
+            .sink { state in
+                XCTAssert(state == .error)
+                exp.fulfill()
+            }
+            .store(in: &cancellables)
 
+        await fulfillment(of: [exp], timeout: 5)
 
+      
+    }
 
-
-
-
-                               
                                
 }
-//class MockSchoolService: SchoolServiceProtocol {
-//    let fileName: FileName
-//    
-//    init(fileName: FileName) {
-//        self.fileName = fileName
-//    }
-//    
-//    func load(_ file: String) -> URL? {
-//        return Bundle(for: type(of: self)).url(forResource: file, withExtension: "json")
-//    }
-//    
-//    func fetchSchools() async throws -> [SchoolResponse] {
-//        guard let url = load(fileName.rawValue) else {
-//            throw APIError.invalidUrl
-//        }
-//        
-//        do {
-//            let data = try Data(contentsOf: url)
-//            let result = try JSONDecoder().decode([SchoolResponse].self, from: data)
-//        
-//            return result
-//        } catch {
-//            throw APIError.emptyData
-//        }
-//    }
-//}
+class MockSchoolService: SchoolServiceProtocol {
+    let fileName: FileName
+    
+    init(fileName: FileName) {
+        self.fileName = fileName
+    }
+    
+    func load(_ file: String) -> URL? {
+        return Bundle(for: type(of: self)).url(forResource: file, withExtension: "json")
+    }
+    
+    func fetchSchools() async throws -> [SchoolResponse] {
+        guard let url = load(fileName.rawValue) else {
+            throw APIError.invalidUrl
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let result = try JSONDecoder().decode([SchoolResponse].self, from: data)
+        
+            return result
+        } catch {
+            throw APIError.emptyData
+        }
+    }
+    func fetchSAT() async throws -> [SATResponse] {
+        guard let url = load(fileName.rawValue) else {
+            throw APIError.invalidUrl
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let result = try JSONDecoder().decode([SATResponse].self, from: data)
+        
+            return result
+        } catch {
+            throw APIError.emptyData
+        }
+    }
+}
 

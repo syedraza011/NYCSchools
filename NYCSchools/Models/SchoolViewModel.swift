@@ -26,6 +26,7 @@ class SchoolViewModel: ObservableObject {
         Task {
             do {
                 allSchools = try await service.fetchSchools()
+                state = .loaded
             } catch {
                 print(error)
             }

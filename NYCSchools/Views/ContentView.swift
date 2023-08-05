@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVStack(spacing: 20) {
+                LazyVStack(spacing: 10) {
                     ForEach(viewModel.allSchools, id: \.self) { school in
                         let satsForSchool = viewModel.allSAT.filter { $0.dbn == school.dbn }
                         NavigationLink(destination: SchoolDetails(school: school, sats: satsForSchool)) {
